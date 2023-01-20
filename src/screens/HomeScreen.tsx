@@ -19,7 +19,7 @@ export const HomeScreen = () => {
   const {nowPlaying, topRated, popular, upcoming, isLoading} = useMovies();
   const {top} = useSafeAreaInsets();
 
-  if (false) {
+  if (isLoading) {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignContent: 'center'}}>
         <ActivityIndicator animating size="large" color="#00ff00" />
