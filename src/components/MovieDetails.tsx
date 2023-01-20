@@ -1,4 +1,5 @@
 import React from 'react'
+import currencyFormatter from 'currency-formatter'
 import { Text, View } from 'react-native';
 import { MovieFull } from '../interfaces/movieInterface';
 import { Cast } from '../interfaces/creditsInterface';
@@ -27,6 +28,21 @@ export const MovieDetails = ({movieFull, cast}: Props ) => {
                     - { movieFull.genres.map( g => g.name ).join(', ') }
                 </Text>
             </View>
+
+            <Text style={{ fontSize:23, marginTop:2, fontWeight:'bold' }}>
+                Historia
+            </Text>
+
+            <Text style={{fontSize: 14, textAlign:'left'}}>
+                { movieFull.overview }
+            </Text>
+
+            <Text style={{ fontSize:23, marginTop:2, fontWeight:'bold' }}>
+                Presupuesto
+            </Text>
+
+            <Text>{currencyFormatter.format(movieFull.budget, { code: 'USD' })}</Text>
+
         </View>
     </>
   )
